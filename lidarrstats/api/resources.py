@@ -26,7 +26,7 @@ def _check_table(connection, table_name):
     db = rethinkdb.db(RETHINK_DB)
 
     if not db.table_list().contains(table_name).run(connection):
-        print('Creating table {}').format(table_name)
+        print('Creating table {}'.format(table_name))
         db.table_create(table_name).run(connection)
 
     return db.table(table_name)

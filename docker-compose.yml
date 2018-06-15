@@ -1,0 +1,19 @@
+version: '3'
+services:
+  lidarrstats:
+    image: lidarr/lidarrapi.stats
+    restart: always
+
+    ports:
+      - 8945:8945
+
+    links:
+      - rethink
+
+    rethink:
+      image: rethinkdb
+      restart: always
+
+      ports:
+        - 8080:8080
+        - 28015:28015
